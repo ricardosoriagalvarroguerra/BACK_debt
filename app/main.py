@@ -64,8 +64,9 @@ cors_origins = [
     "http://localhost:5173",
     "http://127.0.0.1:3000",
     "http://127.0.0.1:5173",
+    "https://frontdebt-production.up.railway.app",
 ]
-if settings.FRONTEND_URL:
+if settings.FRONTEND_URL and settings.FRONTEND_URL not in cors_origins:
     cors_origins.append(settings.FRONTEND_URL)
 
 app.add_middleware(
